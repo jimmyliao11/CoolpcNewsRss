@@ -1,0 +1,21 @@
+{
+    "name": "coolpc-news-rss",
+    "version": "1.0.0",
+    "description": "原價屋新聞 RSS 爬蟲與產生器",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "keywords": [
+        "rss",
+        "scraper",
+        "coolpc"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.7.9",
+        "rss": "^1.2.2"
+    }
+}

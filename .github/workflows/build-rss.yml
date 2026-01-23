@@ -1,0 +1,52 @@
+name: Build and Deploy RSS Feed
+
+# 觸發條件設定
+on:
+    # 每 30 分鐘自動執行一次
+    schedule:
+        - cron: '*/30 * * * *'
+    # 允許手動觸發
+    workflow_dispatch:
+    # 推送到 main 分支時也執行
+    push:
+        branches:
+            - main
+
+# 設定權限，允許寫入 GitHub Pages
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            # 步驟 1: 檢出程式碼
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # 步驟 2: 設定 Node.js v24
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '24'
+                  cache: 'npm'
+
+            # 步驟 3: 安裝相依套件
+            - name: Install dependencies
+              run: npm ci
+
+            # 步驟 4: 執行 RSS 產生器
+            - name: Generate RSS Feed
+              run: npm start
+
+            # 步驟 5: 部署到 gh-pages 分支
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
+                  publish_branch: gh-pages
+                  force_orphan: true
