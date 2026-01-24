@@ -4,9 +4,7 @@
 
 ## 📡 RSS 訂閱網址
 
-```
-https://jimmyliao11.github.io/CoolpcNewsRss/coolpc-news.xml
-```
+[https://jimmyliao11.github.io/CoolpcNewsRss/coolpc-news.xml](https://jimmyliao11.github.io/CoolpcNewsRss/coolpc-news.xml)
 
 ## 功能說明
 
