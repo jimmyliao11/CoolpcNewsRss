@@ -4,7 +4,7 @@ name: Build and Deploy RSS Feed
 on:
     # 每 30 分鐘自動執行一次
     schedule:
-        - cron: '*/30 * * * *'
+        - cron: '5,35 * * * *'
     # 允許手動觸發
     workflow_dispatch:
     # 推送到 main 分支時也執行
