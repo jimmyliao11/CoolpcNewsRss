@@ -2,9 +2,9 @@ name: Build and Deploy RSS Feed
 
 # 觸發條件設定
 on:
-    # 每 60 分鐘自動執行一次
+    # 每 30 分鐘自動執行一次
     schedule:
-        - cron: '0 * * * *'
+        - cron: '*/30 * * * *'
     # 允許手動觸發
     workflow_dispatch:
     # 推送到 main 分支時也執行
@@ -15,8 +15,6 @@ on:
 # 設定權限，允許寫入 GitHub Pages
 permissions:
     contents: write
-    pages: write
-    id-token: write
 
 jobs:
     build-and-deploy:
