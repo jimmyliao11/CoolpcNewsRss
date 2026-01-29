@@ -2,9 +2,9 @@ name: Build and Deploy RSS Feed
 
 # 觸發條件設定
 on:
-    # 每 30 分鐘自動執行一次
+    # 每 15 分鐘自動執行一次
     schedule:
-        - cron: '5,35 * * * *'
+        - cron: '5,20,35,50 * * * *'
     # 允許手動觸發
     workflow_dispatch:
     # 推送到 main 分支時也執行
